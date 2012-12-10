@@ -1,0 +1,173 @@
+\documentclass[12pt,twoside,a4paper]{book}
+
+% ---------------------------------------------------------------------------- %
+% Pacotes 
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage[pdftex]{graphicx}           % usamos arquivos pdf/png como figuras
+\usepackage{setspace}                   % espaçamento flexível
+\usepackage{indentfirst}                % indentação do primeiro parágrafo
+\usepackage{makeidx}                    % índice remissivo
+\usepackage[nottoc]{tocbibind}          % acrescentamos a bibliografia/indice/conteudo no Table of Contents
+\usepackage{courier}                    % usa o Adobe Courier no lugar de Computer Modern Typewriter
+\usepackage{type1cm}                    % fontes realmente escaláveis
+\usepackage{listings}                   % para formatar código-fonte (ex. em Java)
+\usepackage{titletoc}
+%\usepackage[bf,small,compact]{titlesec} % cabeçalhos dos títulos: menores e compactos
+\usepackage[fixlanguage]{babelbib}
+\usepackage[font=small,format=plain,labelfont=bf,up,textfont=it,up]{caption}
+\usepackage[usenames,svgnames,dvipsnames]{xcolor}
+\usepackage[a4paper,top=2.54cm,bottom=2.0cm,left=2.0cm,right=2.54cm]{geometry} % margens
+%\usepackage[pdftex,plainpages=false,pdfpagelabels,pagebackref,colorlinks=true,citecolor=black,linkcolor=black,urlcolor=black,filecolor=black,bookmarksopen=true]{hyperref} % links em preto
+\usepackage[pdftex,plainpages=false,pdfpagelabels,pagebackref,colorlinks=true,citecolor=DarkGreen,linkcolor=NavyBlue,urlcolor=DarkRed,filecolor=green,bookmarksopen=true]{hyperref} % links coloridos
+\usepackage[all]{hypcap}                % soluciona o problema com o hyperref e capitulos
+\usepackage[square,sort,nonamebreak,comma]{natbib}  % citação bibliográfica alpha (alpha-ime.bst)
+\fontsize{60}{62}\usefont{OT1}{cmr}{m}{n}{\selectfont}
+
+% ---------------------------------------------------------------------------- %
+% Cabeçalhos similares ao TAOCP de Donald E. Knuth
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\MakeUppercase{#1}}{}}
+\renewcommand{\headrulewidth}{0pt}
+
+% ---------------------------------------------------------------------------- %
+\graphicspath{{./figuras/}}             % caminho das figuras (recomendável)
+\frenchspacing                          % arruma o espaço: id est (i.e.) e exempli gratia (e.g.) 
+\urlstyle{same}                         % URL com o mesmo estilo do texto e não mono-spaced
+\makeindex                              % para o índice remissivo
+\raggedbottom                           % para não permitir espaços extra no texto
+\fontsize{60}{62}\usefont{OT1}{cmr}{m}{n}{\selectfont}
+\cleardoublepage
+\normalsize
+
+% ---------------------------------------------------------------------------- %
+% Opções de listing usados para o código fonte
+% Ref: http://en.wikibooks.org/wiki/LaTeX/Packages/Listings
+\lstset{ %
+language=Java,                  % choose the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+stepnumber=1,                   % the step between two line-numbers. If it's 1 each line will be numbered
+numbersep=5pt,                  % how far the line-numbers are from the code
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,	                % adds a frame around the code
+framerule=0.6pt,
+tabsize=2,	                    % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+escapeinside={\%*}{*)},         % if you want to add a comment within your code
+backgroundcolor=\color[rgb]{1.0,1.0,1.0}, % choose the background color.
+rulecolor=\color[rgb]{0.8,0.8,0.8},
+extendedchars=true,
+xleftmargin=10pt,
+xrightmargin=10pt,
+framexleftmargin=10pt,
+framexrightmargin=10pt
+}
+
+% ---------------------------------------------------------------------------- %
+% Corpo do texto
+\begin{document}
+\frontmatter 
+% cabeçalho para as páginas das seções anteriores ao capítulo 1 (frontmatter)
+\fancyhead[RO]{{\footnotesize\rightmark}\hspace{2em}\thepage}
+\setcounter{tocdepth}{2}
+\fancyhead[LE]{\thepage\hspace{2em}\footnotesize{\leftmark}}
+\fancyhead[RE,LO]{}
+\fancyhead[RO]{{\footnotesize\rightmark}\hspace{2em}\thepage}
+
+\onehalfspacing  % espaçamento
+
+% ---------------------------------------------------------------------------- %
+% CAPA
+% Nota: O título para as teses/dissertações do IME-USP devem caber em um 
+% orifício de 10,7cm de largura x 6,0cm de altura que há na capa fornecida pela SPG.
+\thispagestyle{empty}
+\begin{center}
+    \vspace*{2.3cm}
+    \textbf{\Large{Espa\c{c}o - X}}\\
+    
+    \vspace*{1.2cm}
+    \Large{Christian Sticchi, Emerson Barros e Oct\'{a}vio Magela}
+    
+    \vskip 4cm
+    \textsc{
+    Artigo apresentado a discplina de Projeto Interativo\\[-0.25cm]
+    Centro Universit\'{a}rio Senac\\[-0.25cm]
+   }
+    
+    \vskip 2cm
+    Orientador: Professor Dr. Eduardo Heredia\\
+
+
+   	\vskip 5cm
+    \normalsize{S\~{a}o Paulo, dezembro de 2012}
+\end{center}
+
+% ---------------------------------------------------------------------------- %
+\newpage
+
+% Resumo
+\textbf{{Resumo}}
+\vskip 0.5cm
+O Espa\c{c}o - X \'{e} um jogo 2D de espa\c{c}onaves. A estrat\'{e}gia \'{e} pensar r\'{a}pido. Ap\'{o}s surgir uma equa\c{c}\~{a}o na tela, a miss\~{a}o do jogador \'{e} destruir a nave inimiga de acordo com a resposta correspondente.
+%% ------------------------------------------------------------------------- %%
+
+\vskip 1cm
+% IntroduÃ§Ã£o
+\textbf{{Introdu\c{c}\~{a}o}}
+\vskip 0.5cm
+Os inimigos estar\~{a}o dispostos em dez naves. As equa\c{c}\~{o}es s\~{a}o as chaves para ganhar pontos. Quanto mais r\'{a}pido o jogador definir o resultado, mais rapidamente conhecer\'{a} a mave desprotegida.
+
+
+% ---------------------------------------------------------------------------- %
+\vskip 1cm
+% Desenvolvimento
+\textbf{{Desenvolvimento}}
+\vskip 0.5cm
+
+O Espa\c{c}o - X foi desenvolvido por Christian Sticchi, Emerson Barros e Oct\'{a}vio Magela em um per\'{\i}odo de 4 meses. A etapa prim\'{a}ria do projeto foi definir a ideia central do jogo e a divis\~{a}o inicial de tarefas, onde cada integrante ficou encarregado por criar um escopo para o jogo. Feito isso, reunimos as ideias que eram comum a todos e definimos o que seria feito a partir daquele momento.
+
+\vskip 0.5cm
+No m\^{e}s seguinte, iniciamos o processo da escolha de arquivos (imagens, cores, sons, etc) e o desenvolvimento de cada fun\c{c}\~{a}o presente no jogo (atirar, mover, carregar imagens,etc).
+
+\vskip 0.5cm
+Finalmente o jogo estava praticamente pronto e nos restava apenas tirar bugs e corrigir os par\^{a}metros de algumas fun\c{c}\~{o}es.
+
+% ---------------------------------------------------------------------------- %
+\vskip 1cm
+% Metodologia
+\textbf{{Metodologia}}
+\vskip 0.5cm
+
+O Espa\c{c}o - X foi desenvolvido na linguagem C, com IDE Dev-C 4.9.9.2 e biblioteca gr\'{a}fica Allegro 4.2.1;
+
+\vskip 1cm
+% ConclusÃ£o
+\textbf{{Conclus\~{a}o}}
+\vskip 0.5cm
+A implementa\c{c}\~{a}o do c\'{a}lculo de equa\c{c}\~{o}es do primeiro grau em um ambiente gr\'{a}fico sob o modelo de jogo 2D permite a evas\~{a}o do paradigma do aprendizado comum.
+Essa fixa\c{c}\~{a}o de conhecimento ocorre atrav\'{e}s do est\'{\i}mulo subjetivo ao racioc\'{\i}nio l\'{o}gico (mesmo que seja de forma simples), ou seja, a miss\~{a}o destacada ao jogador \'{e} destruir naves, mas paralelo a isso \'{e} preciso conhecer o valor resposta da equa\c{c}\~{a}o para atingir o objetivo central do jogo.
+% ---------------------------------------------------------------------------- %
+\vskip 1cm
+% ReferÃªncias BibliogrÃ¡ficas
+\textbf{{Refer\^{e}ncias Bibliogr\'{a}ficas}}
+\vskip 0.5cm
+
+<http://alleg.sourceforge.net/api.html>. API Allegro, 26 Nov 2006;
+\vskip 0.5cm
+<http://equipe.nce.ufrj.br/adriano/c/apostila/allegro/docs/allegro.html>.
+A Biblioteca Gr\'{a}fica Allegro. Mota, Tiago, 2002.
+
+% ---------------------------------------------------------------------------- %
+
+\end{document}

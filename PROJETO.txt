@@ -1,0 +1,3 @@
+Espaço-X
+
+Jogo de espaçonaves, o qual através da resposta de equações de 1o grau que surgem na tela o jogador descobre a nave com o valor correspodente acumulando pontos a cada acerto.

@@ -1,0 +1,10 @@
+INSTRUCOES:
+- Ambiente para execução: Windows
+
+1. Abra a pasta SRC;
+2. Abra o executável: "ESPACO-X"
+
+PS: Caso o Sistema Operacional não permita a execução a partir da Resolução de Tela Padrão,
+vá até a Area de Trabalho, clique com o botão direito do mouse e em seguida Resolução de Tela,
+mude a configuração padrão para: 1280x720.
+
